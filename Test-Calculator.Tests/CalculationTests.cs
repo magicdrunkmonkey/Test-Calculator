@@ -7,15 +7,42 @@ namespace Test_Calculator.Tests
     public class CalculationTests
     {
         [Fact]
-        public void TestDivisionWithZero()
+        public void DivisionWithZero()
         {
+            //Arrange
             double num1 = 1;
             double num2 = 0;
 
+            //Act
             ArgumentException result = Assert.Throws<ArgumentException>(
                 () => Operator.Divide(num1,num2));
 
+            //Assert
             Assert.Equal("You cant divide by 0.", result.Message);
+        }
+
+        [Theory]
+        [InlineData(9990, 10)]
+        [InlineData(10, 44444)]
+        [InlineData(1334, -10)]
+        [InlineData(-1334, 10)]
+        public void TestAdd(double num1,double num2)
+        {           
+            double result = Operator.Add(num1, num2);
+
+            Assert.Equal(result, num1 + num2);
+        }
+
+        [Theory]
+        [InlineData(9990, 10)]
+        [InlineData(10, 44444)]
+        [InlineData(1334, -10)]
+        [InlineData(-1334, 10)]
+        public void TestSubtract(double num1, double num2)
+        {
+            double result = Operator.Subtract(num1, num2);
+
+            Assert.Equal(result, num1 - num2);
         }
 
         [Fact]
