@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Calculator
+namespace Test_Calculator
 {
     class Program
     {
@@ -19,12 +19,14 @@ namespace Calculator
                 Console.WriteLine("Calculator");
                 Console.WriteLine("-------------");
                 // Ask the user to choose an option.
-                Console.WriteLine("Choose an option from the following list:\n");
-                Console.WriteLine("\n1) Add");
-                Console.WriteLine("2) Subtract");
-                Console.WriteLine("3) Multiply");
-                Console.WriteLine("4) Divide");
-                Console.WriteLine("\n\n0) Quit Calculator");
+                Console.WriteLine("Choose an option from the following list:\n\n");
+                Console.WriteLine(
+                    "1) Add\n"+
+                    "2) Subtract\n"+
+                    "3) Multiply\n"+
+                    "4) Divide\n");
+                
+                Console.WriteLine("\n0) Quit Calculator");
 
                 //Menu input
                 Console.Write("\nChoose option and press [Enter]: ");
@@ -38,8 +40,7 @@ namespace Calculator
                             result = Operator.Add(num1, num2);
                             Console.WriteLine("{0} + {1} = {2}", num1, num2, result);
 
-                            Console.WriteLine("\nPress any key to return to menu...");
-                            Console.ReadKey();
+                            PressAnyKeyToMenu();
                             break;
                         }
 
@@ -49,27 +50,28 @@ namespace Calculator
                             result = Operator.Subtract(num1, num2);
                             Console.WriteLine("{0} - {1} = {2}", num1, num2, result);
 
-                            Console.WriteLine("\nPress any key to return to menu...");
-                            Console.ReadKey();
+                            PressAnyKeyToMenu();
                             break;
                         }
 
                     case 3: //Multiply
                         {
                             UserInput();
+
                             result = Operator.Multiply(num1, num2);
                             Console.WriteLine("{0} * {1} = {2}", num1, num2, result);
 
-                            Console.WriteLine("\nPress any key to return to menu...");
-                            Console.ReadKey();
+                            PressAnyKeyToMenu();
                             break;
                         }
 
                     case 4: //Divide
                         {
                             UserInput();
-                            result = Operator.Divide(num1, num2);
 
+                            result = Operator.Divide(num1, num2);                            
+
+                            
                             if (num2 == 0)
                             {
                                 Console.WriteLine("\nThe denominator can not be zero");
@@ -78,9 +80,10 @@ namespace Calculator
                             {
                                 Console.WriteLine("{0} / {1} = {2}", num1, num2, result);
                             }
+                            
 
-                            Console.WriteLine("\nPress any key to return to menu...");
-                            Console.ReadKey();
+                            //num2 = PressAnyKeyToMenu(num2);
+                            //Console.WriteLine("{0} / {1} = {2}", num1, num2, result);
                             break;
                         }
 
@@ -94,8 +97,7 @@ namespace Calculator
                         {
                             Console.WriteLine("\nThe option is not in the selection.");
 
-                            Console.WriteLine("\nPress any key to return to the menu ...");
-                            Console.ReadKey();
+                            PressAnyKeyToMenu();
                             break;
                         }
                 }
@@ -112,6 +114,25 @@ namespace Calculator
                 num2 = Convert.ToDouble(Console.ReadLine());
             }
 
+            void PressAnyKeyToMenu()
+            {
+                Console.WriteLine("\nPress any key to return to menu...");
+                Console.ReadKey();                
+            }
+
+            double CheckIfZero(double number2)
+            {
+                if (number2 == 0)
+                {
+                    Console.WriteLine("\nThe denominator can not be zero");
+                    return number2;
+                }
+                else
+                {
+                    return number2;
+                }
+
+            }
         }
     }
 }
