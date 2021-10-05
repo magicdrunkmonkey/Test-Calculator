@@ -82,8 +82,7 @@ namespace Test_Calculator
                             }
                             
 
-                            //num2 = PressAnyKeyToMenu(num2);
-                            //Console.WriteLine("{0} / {1} = {2}", num1, num2, result);
+                            PressAnyKeyToMenu();                            
                             break;
                         }
 
@@ -119,20 +118,7 @@ namespace Test_Calculator
                 Console.WriteLine("\nPress any key to return to menu...");
                 Console.ReadKey();                
             }
-
-            double CheckIfZero(double number2)
-            {
-                if (number2 == 0)
-                {
-                    Console.WriteLine("\nThe denominator can not be zero");
-                    return number2;
-                }
-                else
-                {
-                    return number2;
-                }
-
-            }
+            
         }
     }
 }

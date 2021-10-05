@@ -46,6 +46,33 @@ namespace Test_Calculator.Tests
         }
 
         [Fact]
+        public void TestMultiply()
+        {
+            //Arrange
+            double num1 = 10;
+            double num2 = 12;
+
+            //Act
+            double result = Operator.Multiply(num1, num2);
+
+            //Assert
+            Assert.Equal(result, num1 * num2);
+        }
+
+        [Fact]
+        public void Divide()
+        {
+            //Arrange
+            double num1 = 10;
+            double num2 = 2;
+
+            //Act
+            double result = Operator.Divide(num1, num2);
+
+            //Assert
+            Assert.Equal(result, num1 / num2);
+        }
+        [Fact]
         public void AdditionOverloadArray()
         {
             double[] testArray1 = { 1, 3, 5, 7, 9 };

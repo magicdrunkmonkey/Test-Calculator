@@ -53,9 +53,13 @@ namespace Test_Calculator
             {
                 throw new ArgumentException("You cant divide by 0.");
             }
-   
-            double subResult = subNum1 / subNum2;
-            return subResult;
+            else
+            {
+                double subResult = subNum1 / subNum2;
+                return subResult;
+            }   
+            
+            //return subResult;
         }
     }
 }
