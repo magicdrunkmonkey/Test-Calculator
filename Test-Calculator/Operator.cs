@@ -12,7 +12,21 @@ namespace Test_Calculator
             return addResult;
         }
 
-        public static double[] Add(double[] arrayOfInputs1, double[] arrayOfInputs2) //Overload Add with an array
+        //Overload Add with one array
+        public static double Add(double[] arrayOfInputs1) 
+        {
+            double sumArray = arrayOfInputs1[0]; //Initialize with arrays first value           
+
+            for (int i = 1; i < arrayOfInputs1.Length; i++)
+            {
+                sumArray = sumArray + arrayOfInputs1[i];
+            }
+
+            return sumArray;
+        }
+
+        //Overload Add with two arrays
+        public static double[] Add(double[] arrayOfInputs1, double[] arrayOfInputs2) 
         {
             double[] addArrayResults = new double[arrayOfInputs1.Length];
 
@@ -30,7 +44,20 @@ namespace Test_Calculator
             return subResult;
         }
 
-        public static double[] Subtract(double[] arrayOfInputs1, double[] arrayOfInputs2) //Overload subtration with an array
+        //Overload Subtract with one array
+        public static double Subtract(double[] arrayOfInputs1)
+        {
+            double sumArray = arrayOfInputs1[0];  // Initialize with arrays first value
+
+            for (int i = 1; i < arrayOfInputs1.Length; i++)
+            {
+                sumArray = sumArray - arrayOfInputs1[i];
+            }
+
+            return sumArray;
+        }
+        //Overload Subtration with two arrays
+        public static double[] Subtract(double[] arrayOfInputs1, double[] arrayOfInputs2) 
         {
             double[] subArrayResults = new double[arrayOfInputs1.Length];
 
@@ -48,7 +75,24 @@ namespace Test_Calculator
         }
 
         public static double Divide(double subNum1, double subNum2)
-        {
+        {            
+            double subResult = 0;
+            try
+            {
+                if(subNum2 == 0)
+                {
+                    throw new ArgumentException("You can't divide by 0.");
+                }
+                subResult = subNum1 / subNum2;
+                
+            }
+            catch(ArgumentException error)
+            {
+                Console.WriteLine(error.Message);
+            }
+            return subResult;
+
+            /*
             if (subNum2 == 0)
             {
                 throw new ArgumentException("You cant divide by 0.");
@@ -57,9 +101,7 @@ namespace Test_Calculator
             {
                 double subResult = subNum1 / subNum2;
                 return subResult;
-            }   
-            
-            //return subResult;
+            }  */
         }
     }
 }

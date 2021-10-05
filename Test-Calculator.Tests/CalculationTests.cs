@@ -12,13 +12,20 @@ namespace Test_Calculator.Tests
             //Arrange
             double num1 = 1;
             double num2 = 0;
+            double expected = 0;
 
             //Act
-            ArgumentException result = Assert.Throws<ArgumentException>(
-                () => Operator.Divide(num1,num2));
+            double result = Operator.Divide(num1, num2);
+
+            //Attempt 1
+            /*ArgumentException result = Assert.Throws<ArgumentException>(
+                () => Operator.Divide(num1,num2));*/
 
             //Assert
-            Assert.Equal("You cant divide by 0.", result.Message);
+            Assert.Equal(expected, result);
+
+            //Attempt 1
+            //Assert.Equal("You cant divide by 0.", result.Message);
         }
 
         [Theory]
@@ -72,8 +79,31 @@ namespace Test_Calculator.Tests
             //Assert
             Assert.Equal(result, num1 / num2);
         }
+
         [Fact]
-        public void AdditionOverloadArray()
+        public void AdditionOverloadArray()  //Test Addition Overload with one array
+        {
+            double[] testArray1 = { 1, 3, 5, 7, 9 };
+            double correctResult = 25;                     
+
+            double testResult = Operator.Add(testArray1);
+
+            Assert.Equal(correctResult, testResult);
+        }
+
+        [Fact]
+        public void SubractionOverloadWithOneArray() //Test Subtraction Overload with one array
+        {
+            double[] testArray1 = { 2, 4, 6, 8 };
+            double correctResult = -16;            
+
+            double testResult = Operator.Subtract(testArray1);
+
+            Assert.Equal(correctResult, testResult);
+        }
+
+        [Fact]
+        public void AdditionOverloadWithOneArray()  //Test Addition Overload with two arrays
         {
             double[] testArray1 = { 1, 3, 5, 7, 9 };
             double[] testArray2 = { 1, 3, 5, 7, 9 };
@@ -87,7 +117,7 @@ namespace Test_Calculator.Tests
         }
 
         [Fact]
-        public void SubractionOverloadArray()
+        public void SubractionOverloadArray() //Test Subtraction Overload with two arrays
         {
             double[] testArray1 = { 2, 4, 6, 8 };
             double[] testArray2 = { 1, 1, 2, 10 };
