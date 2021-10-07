@@ -39,7 +39,7 @@ namespace Test_Calculator.Tests
 
             Assert.Equal(result, num1 + num2);
         }
-
+               
         [Theory]
         [InlineData(9990, 10)]
         [InlineData(10, 44444)]
@@ -56,11 +56,12 @@ namespace Test_Calculator.Tests
         public void TestMultiply()
         {
             //Arrange
+            //Operator op = new Operator();
             double num1 = 10;
             double num2 = 12;
 
             //Act
-            double result = Operator.Multiply(num1, num2);
+            double result = Operator.Multiply(num1, num2);           
 
             //Assert
             Assert.Equal(result, num1 * num2);

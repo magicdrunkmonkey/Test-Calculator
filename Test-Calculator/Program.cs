@@ -11,6 +11,7 @@ namespace Test_Calculator
             int menuOption, menuOption1=-1;
             double num1 = 0, num2 = 0, result;
 
+            
 
             //Menu
             while (menuLoop)
